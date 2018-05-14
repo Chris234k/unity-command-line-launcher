@@ -1,5 +1,5 @@
 # Unity Command Line Launcher
-Launch Unity versions via command line
+Launch different versions of [Unity](https://unity3d.com/) via command line
 
 
 # Setup (Windows only)
