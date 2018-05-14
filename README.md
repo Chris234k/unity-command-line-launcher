@@ -3,7 +3,7 @@ Launch Unity versions via command line
 
 
 # Setup (Windows only)
-1. Download the .bat file (referred to as "batch file" from here on out)
+1. Download the unity.bat file (referred to as "batch file" from here on out)
 2. Create a directory containing all your Unity versions. The name of the folder will be what you type to launch its executable.
     - I recommend something like:
     ```
