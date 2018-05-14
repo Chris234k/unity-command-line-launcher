@@ -22,7 +22,7 @@ Launch Unity versions via command line
         - set unity_base_path=C:\Program Files (x86)\Unity Versions    <--- Edit text after the equals sign (=)
 
 # Usage
-- Since the batch file is on our path, and is named "unity.bat" we're able to type:
+- Open up your favorite console emulator. Since the batch file is on our path, and is named "unity.bat" we're able to type:
     - \> unity versions
         - A list of all folders in your unity_base_path directory. Sample output: 
             >C:\Program Files (x86)\Unity Versions  
