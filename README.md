@@ -23,7 +23,7 @@ Launch different versions of [Unity](https://unity3d.com/) via command line
 
 # Usage
 - Open up your favorite console emulator. Since the batch file is on our path, and is named "unity.bat" we're able to type:
-    - \> unity versions
+    - \> unity ls
         - A list of all folders in your unity_base_path directory. Sample output:
         ```
         C:\Program Files (x86)\Unity Versions
@@ -36,6 +36,13 @@ Launch different versions of [Unity](https://unity3d.com/) via command line
         5.5.0
         5.6.3f1
         5.6.5f1
+        ```
+    - \> unity auto
+        - Attempts to open the Unity version found in /ProjectSettings/ProjectVersion.txt. Sample output:
+        ```
+        Read file:'D:\petricore\dogfight\ProjectSettings\ProjectVersion.txt'
+        Detected Version: 2018.2.6f1
+        "C:\Program Files\Unity Versions\2018.2.6f1\Editor\Unity.exe"
         ```
     - \> unity 5.6.5f1
         - Opens the Unity executable in the folder matching the version provided. Sample output:
