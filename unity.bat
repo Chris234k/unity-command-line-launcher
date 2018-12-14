@@ -1,14 +1,11 @@
 @echo off
 
-REM To debug with visual studio the Unity executable must be named "Unity.exe"
-REM So this batch file handles finding the appropriate exe, based on folder name.
-
 REM Folder structure should look something like
 REM unity_base_path/[Version Number]/Editor/unity.exe
 REM ---- OR ----
 REM unity_base_path/[Version Number]/Editor/Unity/unity.exe
 
-REM NOTE(chris) necessary for using the 'version' variable to be set during the IF statement
+REM NOTE(chris) necessary for the 'version' variable to be set inside the scope of an IF statement
 setlocal enabledelayedexpansion
 
 set unity_base_path=C:\Program Files\Unity Versions
@@ -37,8 +34,6 @@ IF "%1"=="" (
     REM 'unity 2018.2.6f1'
     set version=!text:~17!
     echo Detected Version: !version!
-    
-    REM TODO TODO TODO(chris) at this point we may as well pass an argument to unity.exe to launch the folder as well
     GOTO DETECT_FOLDER
 ) ELSE ( REM an argument has been passed in, and it's not one of the other commands; so we assume it is a version number -- i.e. 'unity 2018.2.6f1'
     set version=%1
@@ -46,14 +41,18 @@ IF "%1"=="" (
 )
 
 :DETECT_FOLDER
-set unity_path="%unity_base_path%\!version!\Editor\Unity.exe"
+REM "-projectPath" tells unity to skip the project picker dialog and open a project at the given path (we're using the current directory)
+REM https://docs.unity3d.com/Manual/CommandLineArguments.html
+IF "%2"=="--open" set projectPath=-projectPath "%cd%"
 
+REM NOTE(chris) Unity seems to have 2 different folder structures (I believe this changed somewhere in 2017 or 2018)
+set unity_path="%unity_base_path%\!version!\Editor\Unity.exe"
 IF EXIST %unity_path% GOTO LAUNCH_UNITY
 set unity_path="%unity_base_path%\!version!\Unity\Editor\Unity.exe"
 
 :LAUNCH_UNITY
-echo %unity_path%
-start "" %unity_path%
+echo %unity_path% !projectPath!
+start "" %unity_path% !projectPath!
 goto END
 
 :END
