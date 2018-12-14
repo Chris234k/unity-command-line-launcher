@@ -49,3 +49,12 @@ Launch different versions of [Unity](https://unity3d.com/) via command line
         ```
         "C:\Program Files (x86)\Unity Versions\5.6.5f1\Editor\Unity.exe"
         ```
+    - \> unity 5.6.5f1 --open
+    - \> unity auto --open
+        - Skips the project picker dialog and opens Unity with the project in the current directory. Sample output:
+        ```
+        Read file:'D:\petricore\dogfight\ProjectSettings\ProjectVersion.txt'
+        Detected Version: 2018.1.0f2
+        "C:\Program Files\Unity Versions\2018.1.0f2\Editor\Unity.exe" -projectPath "D:\petricore\dogfight"
+
+        ```
